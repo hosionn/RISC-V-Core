@@ -1,0 +1,15 @@
+../rtl/common/gnrl_dff.v
+../rtl/core/ifu/ifu.v
+../rtl/core/exu/units/decoder.v
+../rtl/core/exu/units/regfile.v
+../rtl/core/exu/units/alu.v
+../rtl/core/exu/units/branch.v
+../rtl/core/exu/units/lsu.v
+../rtl/core/exu/units/forward_unit.v
+../rtl/core/exu/units/hazard_unit.v
+../rtl/core/exu/exu.v
+../rtl/core/core.v
+../rtl/memory/imem.v
+../rtl/memory/dmem.v
+../rtl/soc/soc.v
+../tb/tb_top.v
