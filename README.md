@@ -2,9 +2,27 @@
 
 这是一个用于处理器内核开发的环境，可以通过 Makefile 脚本进行硬件编译、软件编译、仿真与查看波形。项目中已经包含一个实现了 RV64I 基础指令集的处理器，再次基础上可以进行后续的功能扩展和验证。处理器采用 **IF、ID、EX、MEM、WB 经典五级流水线**。
 
+本项目使用 git 来进行版本维护。修改代码前，请先创建新的分支，在此分支上修改、提交后，再将该分支推送到远程仓库。提交信息使用固定的格式：方括号中写出这次修改的主要模块类别，后面跟一句话的详细描述。例如：
+```
+[IFU] Add branch predictor, including BHT, BHB, RAS.
+```
+本项目的 verilog 代码需要在文件头中标明作者和版本信息，格式如下：
+```verilog
+//===================================================================== 
+/// Description: 
+// This module is ......
+// Designer : xxx@sjtu.edu.cn
+// Revision History
+// V0 date:2025/11/28 Initial version, xxx@sjtu.edu.cn
+// ==================================================================== 
+```
+
 ## 在 Linux 上运行
 
-需要 `make`、GNU `od`、`riscv64-unknown-elf-{as,ld,objcopy,objdump}` 和 Synopsys VCS；`make wave` 另需 Verdi。可通过 `RISCV_PREFIX`、`VCS`、`VERDI` 覆盖程序路径。推荐先进入 `vsim/` 再执行下列命令；也可以从项目根目录运行相同命令，根 Makefile 会转发到 `vsim/`：
++ 需要 `make`、GNU `od` 和 Synopsys VCS；`make wave` 另需 Verdi。
++ 软件编译需要 Nuclei 官方的 Linux 裸机工具链，主要使用了`riscv64-unknown-elf-{as,ld,objcopy,objdump}`。
+
+可通过 `RISCV_PREFIX`、`VCS`、`VERDI` 覆盖程序路径。推荐先进入 `vsim/` 再执行下列命令；也可以从项目根目录运行相同命令，根 Makefile 会转发到 `vsim/`：
 
 ```sh
 make install                       # 检查工具并准备 vsim/install/、run/、build/
